@@ -25,11 +25,11 @@ function getValues() {
 
 // Generate numbers from startValue to the endValue
 // logic function(s)
-function generateNumbers(startValue, endValue) {
+function generateNumbers(sValue, eValue) {
     let numbers = [];
 
     //we want to get all numbers from start to end
-    for (let i = startValue; i <= endValue; i++) {
+    for (let i = sValue; i <= eValue; i++) {
 
         //this will execute in a loop until index= endValue
         numbers.push(i);
