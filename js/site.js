@@ -14,13 +14,14 @@ function getValues() {
     if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
         //we call generateNumbers
         let numbers = generateNumbers(startValue, endValue);   
+        //we call displayNumbers
+        displayNumbers(numbers);
     } else {
         //display error message
         alert("Please enter a valid integer");
     }
 
-    //we call displayNumbers
-    displayNumbers(numbers);
+
 }   
 
 // Generate numbers from startValue to the endValue
@@ -31,7 +32,7 @@ function generateNumbers(sValue, eValue) {
     //we want to get all numbers from start to end
     for (let i = sValue; i <= eValue; i++) {
 
-        //this will execute in a loop until index= endValue
+        //this will execute in a loop until index= eValue
         numbers.push(i);
     }
 
@@ -45,7 +46,18 @@ function displayNumbers(numbers){
     let templateRows = "";
     for (let index = 0; index < numbers.length; index++) {
 
+        let className = "even";
+
         let number = numbers[index];
-        templateRows += `<tr><td>${number}</td></tr>`;
+
+        if(number % 2 === 0){
+            className = "even";
+        } else{
+            className = "odd";
+        }
+
+        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
     }
+
+    document.getElementById("results").innerHTML = templateRows;
 }
